@@ -1,5 +1,5 @@
-import { httpFactoryService } from '../../../services/http-factory.service';
-import { HttpService } from '../../../services/http.service';
+import { httpFactoryService } from '../../../shared/services/http-factory.service';
+import { HttpService } from '../../../shared/services/http.service';
 import { LoginRequest, LoginResponse } from '../types/login.types';
 import { RegistrationRequest, RegistrationResponse } from '../types/registration.types';
 
