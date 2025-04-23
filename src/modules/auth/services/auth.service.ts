@@ -1,6 +1,8 @@
 import { httpFactoryService } from '../../../shared/services/http-factory.service';
 import { HttpService } from '../../../shared/services/http.service';
+
 import { LoginRequest, LoginResponse } from '../types/login.types';
+import { LogoutRequest, LogoutResponse } from '../types/logout.types';
 import { RegistrationRequest, RegistrationResponse } from '../types/registration.types';
 
 class AuthService {
@@ -14,6 +16,12 @@ class AuthService {
 
   public async login(userData: LoginRequest) {
     return this.httpService.post<LoginResponse, LoginRequest>('backend.com/api/v1/auth/login/', userData);
+  }
+
+  public async signInViaGoogle() {}
+
+  public async logout(data: LogoutRequest) {
+    return this.httpService.post<LogoutResponse, LogoutRequest>('backend.com/api/v1/auth/logout/', data);
   }
 }
 
