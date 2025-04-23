@@ -1,5 +1,6 @@
 import { httpFactoryService } from '../../../shared/services/http-factory.service';
 import { HttpService } from '../../../shared/services/http.service';
+import { AuthGoogleResponse, GoogleTokenType } from '../types/google.types';
 
 import { LoginRequest, LoginResponse } from '../types/login.types';
 import { LogoutRequest, LogoutResponse } from '../types/logout.types';
@@ -10,17 +11,27 @@ class AuthService {
     this.httpService = httpService;
   }
 
-  public async registrate(userData: RegistrationRequest) {
+  public async registrate(userData: RegistrationRequest): Promise<RegistrationResponse> {
     return this.httpService.post<RegistrationResponse, RegistrationRequest>('backend.com/api/v1/auth/registration/', userData);
   }
 
-  public async login(userData: LoginRequest) {
+  public async login(userData: LoginRequest): Promise<LoginResponse> {
     return this.httpService.post<LoginResponse, LoginRequest>('backend.com/api/v1/auth/login/', userData);
   }
 
-  public async signInViaGoogle() {}
+  public async signInViaGoogle(googleJWT: GoogleTokenType): Promise<AuthGoogleResponse> {
+    if (googleJWT === undefined) {
+      console.error('There is no google jwt from request to google app.');
 
-  public async logout(data: LogoutRequest) {
+      throw new Error('Missing Google JWT');
+    }
+
+    const data = { credential: googleJWT };
+    
+    return this.httpService.post<AuthGoogleResponse, { credential: string }>(`auth/google/`, data);
+  }
+
+  public async logout(data: LogoutRequest): Promise<LogoutResponse> {
     return this.httpService.post<LogoutResponse, LogoutRequest>('backend.com/api/v1/auth/logout/', data);
   }
 }
