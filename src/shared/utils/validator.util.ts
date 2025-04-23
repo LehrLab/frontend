@@ -6,7 +6,14 @@ type PasswordRuleFlags = {
   lengthIsValid: boolean;
 };
 
-class Validator {
+interface IValidator {
+  validatePasswordBoolean(password: string): boolean;
+  validatePasswordFlags(password: string): PasswordRuleFlags;
+  validateEmail(email: string): boolean;
+  validateUrl(url: string): boolean;
+}
+
+class Validator implements IValidator {
   private passwordRegex: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*\_\-\+])(?=.{8,})/;
   private emailRegex: RegExp = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
   private urlRegex: RegExp = /[-a-zA-Z0-9@:%_\+.~#?&\/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&\/=]*)?/gi;
