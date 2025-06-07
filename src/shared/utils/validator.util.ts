@@ -14,9 +14,10 @@ interface IValidator {
 }
 
 class Validator implements IValidator {
-  private passwordRegex: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*\_\-\+])(?=.{8,})/;
-  private emailRegex: RegExp = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-  private urlRegex: RegExp = /[-a-zA-Z0-9@:%_\+.~#?&\/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&\/=]*)?/gi;
+  private passwordRegex: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_\-+])(?=.{8,})/;
+  private emailRegex: RegExp =
+    /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+  private urlRegex: RegExp = /[-a-zA-Z0-9@:%_+.~#?&/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&/=]*)?/gi;
 
   public validatePasswordBoolean(password: string): boolean {
     return this.passwordRegex.test(password);
@@ -27,10 +28,10 @@ class Validator implements IValidator {
       hasNumber: /[0-9]/.test(password),
       hasLowerCaseLetter: /[a-z]/.test(password),
       hasUpperCaseLetter: /[A-Z]/.test(password),
-      hasSpecialCharacter: /[!@#\$%\^&\*\_\-\+]/.test(password),
+      hasSpecialCharacter: /[!@#$%^&*_\-+]/.test(password),
       lengthIsValid: password.length > 7,
     };
-  
+
     return ruleFlags;
   }
 

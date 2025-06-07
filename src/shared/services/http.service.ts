@@ -5,13 +5,13 @@ const SERVER_URL = import.meta.env.VITE_BACKEND_URL;
 
 export class HttpService {
   constructor(
-		private readonly fetchingService: IHttpClient,
-		private readonly baseUrl: string = SERVER_URL,
+    private readonly fetchingService: IHttpClient,
+    private readonly baseUrl: string = SERVER_URL,
   ) {
     if (!SERVER_URL) {
       throw new Error('VITE_BACKEND_URL in .env file is invalid');
     }
-		
+
     this.fetchingService = fetchingService;
     this.baseUrl = baseUrl;
   }
@@ -43,13 +43,7 @@ export class HttpService {
       });
   }
 
-  public async post<T, TD>(
-    url: string,
-    data: TD,
-    config?: IHttpConfig,
-  ): Promise<T> {
-    console.log('http service. post method');
-
+  public async post<T, TD>(url: string, data: TD, config?: IHttpConfig): Promise<T> {
     return this.fetchingService
       .post<IResponse<T>, TD>(this.getFullApiUrl(url), data, {
         ...config,
@@ -64,11 +58,7 @@ export class HttpService {
       });
   }
 
-  public async put<T, TD>(
-    url: string,
-    data: TD,
-    config?: IHttpConfig,
-  ): Promise<T> {
+  public async put<T, TD>(url: string, data: TD, config?: IHttpConfig): Promise<T> {
     return this.fetchingService
       .put<IResponse<T>, TD>(this.getFullApiUrl(url), data, {
         ...config,
@@ -83,11 +73,7 @@ export class HttpService {
       });
   }
 
-  public async patch<T, TD>(
-    url: string,
-    data: TD,
-    config?: IHttpConfig,
-  ): Promise<T> {
+  public async patch<T, TD>(url: string, data: TD, config?: IHttpConfig): Promise<T> {
     return this.fetchingService
       .patch<IResponse<T>, TD>(this.getFullApiUrl(url), data, {
         ...config,
