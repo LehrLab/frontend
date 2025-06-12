@@ -2,9 +2,7 @@ import { FC } from 'react';
 import './input.component.scss';
 
 const Input: FC = () => {
-  return (
-    <input />
-  );
-}
+  return <input />;
+};
 
 export default Input;

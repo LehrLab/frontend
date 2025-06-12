@@ -2,12 +2,12 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 interface AuthState {
-	accessToken: string | null;
-	refreshToken: string | null;
-	isAuthenticated: boolean;
-	clearTokens: () => void;
-	login: (accessToken: string, refreshToken: string) => void;
-	logout: () => void;
+  accessToken: string | null;
+  refreshToken: string | null;
+  isAuthenticated: boolean;
+  clearTokens: () => void;
+  login: (accessToken: string, refreshToken: string) => void;
+  logout: () => void;
 }
 
 const useAuthStore = create<AuthState>()(
