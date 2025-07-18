@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import './sidebar.component.scss';
+
 import { navigationButtons } from './navigation-keys';
-import { NavLink } from 'react-router-dom';
+import { NavButton } from './nav-button.component';
 
 export const Sidebar: FC = () => {
   return (
@@ -11,15 +12,10 @@ export const Sidebar: FC = () => {
       <nav className='sidebar__navigation navigation'>
         {navigationButtons.map((btn) => {
           return (
-            <NavLink
-              className={({ isActive }) =>
-                (isActive && `navigation__button--active-${btn.iconType}`) + ` navigation__button`
-              }
+            <NavButton
+              btn={btn}
               key={btn.key}
-              to={btn.href}
-            >
-              {btn.imageComponent({})}
-            </NavLink>
+            />
           );
         })}
       </nav>

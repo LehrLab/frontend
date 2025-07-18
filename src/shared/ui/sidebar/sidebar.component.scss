@@ -32,6 +32,22 @@
     border-radius: 8px;
     cursor: pointer;
 
+    &--fill {
+      background-color: transparent;
+
+      svg path {
+        fill: #000000;
+      }
+    }
+
+    &--stroke {
+      background-color: transparent;
+
+      svg {
+        color: #000000;
+      }
+    }
+
     &--active {
       &-fill {
         background-color: black;
