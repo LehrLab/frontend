@@ -1,4 +1,4 @@
-type PasswordRuleFlags = {
+export type PasswordRuleFlags = {
   hasNumber: boolean;
   hasLowerCaseLetter: boolean;
   hasUpperCaseLetter: boolean;
@@ -17,7 +17,7 @@ class Validator implements IValidator {
   private passwordRegex: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_\-+])(?=.{8,})/;
   private emailRegex: RegExp =
     /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-  private urlRegex: RegExp = /[-a-zA-Z0-9@:%_+.~#?&/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&/=]*)?/gi;
+  private urlRegex: RegExp = /^(https?:\/\/)?([\w.-]+\.)+[a-z]{2,6}(\/[\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/i;
 
   public validatePasswordBoolean(password: string): boolean {
     return this.passwordRegex.test(password);
