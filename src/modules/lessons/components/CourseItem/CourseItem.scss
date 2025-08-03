@@ -1,0 +1,49 @@
+.course {
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 16px;
+  border: 1px solid #AEAEAE;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  &__img {
+    height: 80px;
+    object-fit: cover;
+    border-radius: 16px 16px 0 0;
+  }
+  &__grade {
+    position: absolute;
+    top: 64px;
+    left: 16px;
+    width: 48px;
+    height: 32px;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  &__info {
+    padding-inline: 16px;
+    padding-bottom: 13px;
+
+  }
+  &__subject {
+    margin-top: 33px;
+    font-weight: 500;
+    font-size: 16px;
+
+  }
+  &__teacher {
+    margin-top: 38px;
+    color: #908F8F;
+    font-weight: 400;
+    font-size: 14px;
+  }
+}

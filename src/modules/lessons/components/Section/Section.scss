@@ -1,0 +1,83 @@
+.section {
+  width: 100%;
+  // overflow: hidden;
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+  }
+  &__heading {
+    font-size: 16px;
+    align-self: flex-end;
+  }
+  &__button {
+    &--more {
+    height: 21px;
+    font-size: 14px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-self: flex-start;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #000;
+      }
+    }
+  }
+  &__container {
+    width: 100%;
+    position: relative;
+  }
+  &__items {
+    display: flex;
+    gap: 24px;
+    margin-top: 16px;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &__scroll-buttons {
+    position: absolute;
+    top: 80px;
+    z-index: 5;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__scroll-button {
+    cursor: pointer;
+    position: absolute;
+    z-index: 6;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    border-radius: 50px;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    background-position: center;
+    border: 1px solid #8C8C8C;
+    background-color: #fff;
+    &--left {
+      background-image: url('./../../../../../public/ArrowLeft.png');
+      left: -20px;
+    }
+    &--right {
+      background-image: url('./../../../../../public/ArrowRight.png');
+      right: -20px;
+    }
+  }
+}

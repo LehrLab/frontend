@@ -1,0 +1,17 @@
+.button {
+  height: 40px;
+  min-width: 202px;
+  padding-inline: 16px;
+  border-radius: 1000px;
+  border: none;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: auto;
+  letter-spacing: 0;
+
+  &--primary {
+    background-color: #1E1E1E;
+    color: #fff;
+  }
+}

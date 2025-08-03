@@ -1,26 +1,42 @@
 import { FC, useState } from 'react';
+import './lessons.page.scss';
+import { Button } from '../components/Button';
+import classNames from 'classnames';
+import { lessonsType } from '../types/lessonsType';
+import { allCourseSections } from '../lessons-data-mock';
+import { Section } from '../components/Section';
 
 type LessonsPageProps = null;
-
-type lessonsType = 'Курси' | 'Факультативи' | 'Гуртки' | 'ГПД' | 'Індивідуальні';
 
 export const LessonsPage: FC<LessonsPageProps> = () => {
   const [lessonsFilter, setLessonsFilter] = useState<lessonsType>('Курси');
 
   const filterTypes: lessonsType[] = ['Курси', 'Факультативи', 'Гуртки', 'ГПД', 'Індивідуальні'];
 
+  const filteredSections = allCourseSections.filter((course) => course.type === lessonsFilter);
+
   return (
     <main className='lessons-page'>
-      <h1>Lessons Page</h1>
-      <div className='filter-panel'>
+      <div className='lessons-page__top-bar'>
+        <h1 className='lessons-page__heading'>Простори</h1>
+        <Button buttonText='Додати власний курс' />
+      </div>
+      <div className='lessons-page__filter-panel'>
         {filterTypes.map((type) => (
           <button
             key={type}
-            className={lessonsFilter === type ? 'active' : ''}
+            className={classNames('lessons-page__filter-button', {
+              'lessons-page__filter-button--active': lessonsFilter === type,
+            })}
             onClick={() => setLessonsFilter(type)}
           >
             {type}
           </button>
+        ))}
+      </div>
+      <div className='lessons-page__content'>
+        {filteredSections.map((section) => (
+          <Section sectionData={section} />
         ))}
       </div>
     </main>
