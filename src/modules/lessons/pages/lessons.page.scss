@@ -1,13 +1,17 @@
+@use './../../../shared/ui/styles/index' as *;
+
 .lessons-page {
   font-family: Inter, Arial, sans-serif;
   padding-inline: 48px;
   padding-block: 32px;
   height: 100%;
+
   &__top-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+
   &__heading {
     font-size: 24px;
     font-weight: 600;
@@ -15,6 +19,7 @@
     letter-spacing: 0;
     margin: 0;
   }
+
   &__filter-panel {
     margin-top: 24px;
     margin-bottom: 40px;
@@ -24,6 +29,7 @@
     align-items: flex-start;
 
   }
+
   &__filter-button {
     font-size: 14px;
     font-weight: 500;
@@ -46,9 +52,10 @@
     }
 
     &--active::after {
-      background-color: #000;
+      background-color: $active-button-underline;
     }
   }
+
   &__content {
     display: flex;
     flex-direction: column;

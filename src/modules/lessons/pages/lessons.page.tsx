@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import './lessons.page.scss';
 import { Button } from '../components/Button';
 import classNames from 'classnames';
-import { lessonsType } from '../types/lessonsType';
+import { lessonsType } from '../types/lessons.type';
 import { allCourseSections } from '../lessons-data-mock';
 import { Section } from '../components/Section';
 

@@ -1,4 +1,4 @@
-import { CourseSection } from './types/CourseSection';
+import { CourseSection } from './types/course-section.type';
 export const allCourseSections: CourseSection[] = [
   {
     type: 'Курси',

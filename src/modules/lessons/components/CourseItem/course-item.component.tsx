@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Course } from '../../types/Course';
-import './CourseItem.scss';
+import { Course } from '../../types/course.type';
+import './course-item.component.scss';
 
 type CourseProps = {
   courseInfo: Course;
@@ -10,7 +10,7 @@ export const CourseItem: React.FC<CourseProps> = ({ courseInfo }) => {
   return (
     <div className='course'>
       <img
-        src={courseInfo.imageUrl ? courseInfo.imageUrl : './../../public/courseItem_background.png'}
+        src={courseInfo.imageUrl ? courseInfo.imageUrl : './../../png/courseItem_background.png'}
         alt={courseInfo.subject}
         className='course__img'
       />

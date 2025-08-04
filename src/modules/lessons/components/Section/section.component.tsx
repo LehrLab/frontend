@@ -1,7 +1,7 @@
-import './Section.scss';
-import { CourseSection } from '../../types/CourseSection';
+import './section.component.scss';
+import { CourseSection } from '../../types/course-section.type';
 import * as React from 'react';
-import { CourseItem } from '../CourseItem/CourseItem';
+import { CourseItem } from '../CourseItem/course-item.component';
 import { useRef } from 'react';
 import { useState, useEffect } from 'react';
 

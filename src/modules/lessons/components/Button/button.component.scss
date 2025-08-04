@@ -1,3 +1,5 @@
+@use './../../../../shared/ui/styles/index' as *;
+
 .button {
   height: 40px;
   min-width: 202px;
@@ -11,7 +13,7 @@
   letter-spacing: 0;
 
   &--primary {
-    background-color: #1E1E1E;
-    color: #fff;
+    background-color: $primary-button-bg-color;
+    color: $primary-button-color;
   }
 }

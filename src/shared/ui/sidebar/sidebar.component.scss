@@ -5,7 +5,7 @@
   width: 80px;
   border-right: #c1c1c1 1px solid;
   height: 100vh;
-  padding: 24px 0px 0px;
+  padding: 24px 0 0;
   gap: 24px;
 
   &__avatar {
@@ -36,7 +36,7 @@
       background-color: transparent;
 
       svg path {
-        fill: #000000;
+        fill: #000;
       }
     }
 
@@ -44,7 +44,7 @@
       background-color: transparent;
 
       svg {
-        color: #000000;
+        color: #000;
       }
     }
 
@@ -53,7 +53,7 @@
         background-color: black;
 
         svg path {
-          fill: #ffffff;
+          fill: #fff;
         }
       }
 
@@ -61,7 +61,7 @@
         background-color: black;
 
         svg {
-          color: #ffffff;
+          color: #fff;
         }
       }
     }
